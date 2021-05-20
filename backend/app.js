@@ -1,22 +1,13 @@
 const express = require("express");
 const app = express();
-const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
-const productRoutes = require("./api/routes/products");
-const orderRoutes = require("./api/routes/orders");
+const cors = require('cors');
+const routes = require("./routes/routes");
 
 mongoose.connect(
-    "mongodb+srv://admin:<password>@cluster0.lalaw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  {
-    useMongoClient: true
-  }
-);
-
-app.use(morgan("dev"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+    "mongodb+srv://teste_luigi:teste_luigi@cluster0.jmy2n.gcp.mongodb.net/trabalhoweb?retryWrites=true&w=majority"
+); // trabalhoweb - nome do database
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -30,10 +21,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-
-// Routes which should handle requests
-app.use("/products", productRoutes);
-app.use("/orders", orderRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
@@ -50,4 +37,11 @@ app.use((error, req, res, next) => {
   });
 });
 
-module.exports = app;
+// app.use(express.static('public'));
+// app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+const port = process.env.PORT || 3000;
+
+app.listen(port);
