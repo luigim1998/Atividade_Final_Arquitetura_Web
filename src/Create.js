@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
+import api from "./apibackend";
 
 const Create = () => {
 
@@ -16,11 +17,12 @@ const Create = () => {
         const blog = {title, body, author};
         setIsPending(true);
 
-        fetch('http://localhost:8000/blogs', {
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(blog)
-        })
+        // fetch('http://localhost:3500/blogs', {
+        //     method: 'POST',
+        //     headers: {"Content-type": "application/json"},
+        //     body: JSON.stringify(blog)
+        // })
+        api.post("/blogs", JSON.stringify(blog))
         .then(()=>{
             console.log('new blog added');
             setIsPending(false);

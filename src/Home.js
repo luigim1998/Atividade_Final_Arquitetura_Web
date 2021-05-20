@@ -3,10 +3,20 @@ import Navbar from "./Navbar";
 import useFetch from "./useFetch";
 import {useAuth} from "./AuthContext";
 import { useHistory } from "react-router";
+import api from "./apibackend";
 
 const Home = () => {
 
-    const {data:blogs, isLoading, error} = useFetch('http://localhost:8000/blogs');
+    //const {data:blogs, isLoading, error} = useFetch('/blogs');
+
+    const isLoading = false
+    const error = false
+    const blogs = api.get('/blogs')
+    .then(res => {
+        console.log(res.data);
+        return res.data;
+    })
+
     const { currentUser, logout } = useAuth();
     const history = useHistory;
 
@@ -20,6 +30,7 @@ const Home = () => {
     }
 
     console.log(currentUser.email);
+    console.log(blogs);
 
     return ( 
         <div className="App">

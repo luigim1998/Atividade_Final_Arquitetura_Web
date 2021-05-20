@@ -54,7 +54,7 @@ app.use((error, req, res, next) => {
 // app.use(express.static('public'));
 // app.use(cors());
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3500;
 
 app.listen(port);
 

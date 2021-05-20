@@ -3,25 +3,27 @@ import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import useFetch from "./useFetch";
 import {useAuth} from './AuthContext';
+import api from "./apibackend";
 
 const BlogDetails = () => {
 
     const { id } = useParams();
-    const {data:blog, isLoading, error} = useFetch('http://localhost:8000/blogs/' + id);
+    const {data:blog, isLoading, error} = useFetch('/blogs/' + id);
 
     const {currentUser} = useAuth();
     const history = useHistory();
 
     const handleDelete = () => {
         if (currentUser.email === 'admin@admin.com'){
-            fetch('http://localhost:8000/blogs/'+id, {
-                method: 'DELETE'
-            })
+            // fetch('http://localhost:3500/blogs/'+id, {
+            //     method: 'DELETE'
+            // })
+            api.delete('/blogs/'+id)
             .then(()=>{
                 history.push('/');
             });
         }else{
-            alert("You Don't Have Permission for This Action!")
+            alert("Você não possui permissões administrativas. Somente admins podem deletar blogs!")
         }
     }
 
