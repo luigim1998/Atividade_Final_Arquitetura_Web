@@ -7,11 +7,9 @@ import api from "./apibackend";
 
 const Home = () => {
 
-    //const {data:blogs, isLoading, error} = useFetch('/blogs');
+    const {data:blogs, isLoading, error} = useFetch('/blogs');
 
-    const isLoading = false
-    const error = false
-    const blogs = api.get('/blogs')
+    api.get('/blogs')
     .then(res => {
         console.log(res.data);
         return res.data;

@@ -14,7 +14,7 @@ const BlogDetails = () => {
     const history = useHistory();
 
     const handleDelete = () => {
-        if (currentUser.email === 'admin@admin.com'){
+        if (currentUser.email === 'admin@email.com'){
             // fetch('http://localhost:3500/blogs/'+id, {
             //     method: 'DELETE'
             // })

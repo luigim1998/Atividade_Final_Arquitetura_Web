@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const routes = require("./routes/routes");
-
+app.use(cors());
 mongoose.connect(
     "mongodb+srv://luigimuller:senhadolulu@cluster0.jmy2n.gcp.mongodb.net/trabalhoweb?retryWrites=true&w=majority",
     {
@@ -52,7 +52,7 @@ app.use((error, req, res, next) => {
 });
 
 // app.use(express.static('public'));
-// app.use(cors());
+
 
 const port = process.env.PORT || 3500;
 
