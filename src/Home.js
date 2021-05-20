@@ -8,15 +8,10 @@ import api from "./apibackend";
 const Home = () => {
 
     const {data:blogs, isLoading, error} = useFetch('/blogs');
-    console.log("BLOGUUUUEEE"+blogs);
-    api.get('/blogs')
-    .then(res => {
-        console.log("RESULTADO AQUI"+res.data);
-        return res.data;
-    })
+    console.log("LOADINING"+isLoading);
 
     const { currentUser, logout } = useAuth();
-    const history = useHistory;
+    const history = useHistory();
 
     async function handleLogOut(){
         try{

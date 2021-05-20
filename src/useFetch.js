@@ -12,7 +12,7 @@ const useFetch = (url) => {
         //fetch(url, { signal: abortCont.signal, method: 'GET'})
         api.get(url)
         .then(res => {
-            console.log(res.data);
+            console.log("asdfadshbja"+res.data);
             if(!res.ok) {
                 throw Error('could not fetch the data for taht resource');
             }
