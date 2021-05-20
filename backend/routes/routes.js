@@ -6,7 +6,7 @@ const routes = express.Router();
 const PostBlog = require("../models/postblog");
 
 // cria um post no blog
-routes.post("/blogs", function(req, re, next){
+routes.post("/blogs", function(req, res, next){
 	console.log(req.body);
 	PostBlog.create(req.body).then(function(post){
 		console.log(post);
@@ -15,10 +15,10 @@ routes.post("/blogs", function(req, re, next){
 });
 
 // recebe todos os posts
-routes.get("/blogs", function(req, re, next){
-	PostBlog.find({}).then(function(post){
-		console.log(post);
-		res.send(post);
+routes.get("/blogs", function(req, res, next){
+	PostBlog.find({}).then(function(get){
+		console.log(get);
+		res.send(get);
 	}).catch(next);
 })
 

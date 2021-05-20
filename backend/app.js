@@ -18,7 +18,10 @@ mongoose.connect(
 })
 .catch((err)=>{
   console.log('Connection failed !!'+ err.message);
-});; // trabalhoweb - nome do database
+}); // trabalhoweb - nome do database
+
+app.use(express.json());
+app.use(routes);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -50,8 +53,6 @@ app.use((error, req, res, next) => {
 
 // app.use(express.static('public'));
 // app.use(cors());
-app.use(express.json());
-app.use(routes);
 
 const port = process.env.PORT || 3000;
 
