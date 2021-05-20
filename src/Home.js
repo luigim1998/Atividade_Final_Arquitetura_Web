@@ -8,10 +8,10 @@ import api from "./apibackend";
 const Home = () => {
 
     const {data:blogs, isLoading, error} = useFetch('/blogs');
-
+    console.log("BLOGUUUUEEE"+blogs);
     api.get('/blogs')
     .then(res => {
-        console.log(res.data);
+        console.log("RESULTADO AQUI"+res.data);
         return res.data;
     })
 

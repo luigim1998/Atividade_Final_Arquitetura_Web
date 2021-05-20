@@ -9,7 +9,6 @@ const useFetch = (url) => {
     useEffect( () => {
 
         const abortCont = new AbortController();
-
         //fetch(url, { signal: abortCont.signal, method: 'GET'})
         api.get(url)
         .then(res => {
