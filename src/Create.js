@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Create = () => {
 
@@ -23,36 +24,46 @@ const Create = () => {
         .then(()=>{
             console.log('new blog added');
             setIsPending(false);
-            // history.go(-1);
             history.push('/');
         });
     }
 
     return (
-        <div className="create">
-            <h2>Add new blog</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Blog Title:</label>
-                <input
-                    type="text"
-                    required
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <label>Blog Body:</label>
-                <textarea
-                    required
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                ></textarea>
-                <label>Blog Author:</label>
-                <select value={author} onChange={(e) => setAuthor(e.target.value)}>
-                    <option value="Mario">Mario</option>
-                    <option value="Yoshi">Yoshi</option>
-                </select>
-                { !isPending && <button>Add Blog</button> }
-                { isPending && <button disabled>Add Bloging...</button> }
-            </form>
+        <div className="App">
+            <Navbar/>
+            <div className="content">
+                <div className="create">
+                    <h2>Adicionar Novo Blog</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label>Título do Blog:</label>
+                        <input
+                            type="text"
+                            required
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <label>Blog Body:</label>
+                        <textarea
+                            required
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                        ></textarea>
+                        <label>Imagens:</label>
+                        <input
+                            multiple    
+                            type="file"
+                        />
+                        <label>Autor do Blog:</label>
+                        <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+                            <option value="Mario">Mario</option>
+                            <option value="Yoshi">Yoshi</option>
+                            <option value="Luigi_do_mal">Luigi_do_mal</option>
+                        </select>
+                        { !isPending && <button>Adicionar Blog</button> }
+                        { isPending && <button disabled>Add Bloging...</button> }
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }

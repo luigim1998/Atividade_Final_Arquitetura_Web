@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* base styles */
+
+
 * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
+  background-color: #ffffff;
+}
+
+.logoutDiv button{
+  background: #151449;
+  color: rgb(255, 255, 255);
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 1px;
+}
+.logoutDiv {
+  align-items: flex-end;
+  float: right;
 }
 .navbar {
   padding: 20px;
@@ -15,7 +32,7 @@
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #C907F5;
 }
 .navbar .links {
   margin-left: auto;
@@ -26,8 +43,20 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  font-weight: bold;
+  color: #C907F5;
 }
+
+.navbar button{
+  background: #C907F5;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  margin-left: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .content {
   max-width: 600px;
   margin: 40px auto;
@@ -38,14 +67,14 @@
 .blog-preview {
   padding:  10px 16px;
   margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid #51ffff;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 .blog-preview h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #1A1D99;
   margin-bottom: 8px;
 }
 .blog-preview a{
@@ -62,7 +91,7 @@
   margin: 20px 0;
 }
 .blog-details button {
-  background: #f1356d;
+  background: #C907F5;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -81,7 +110,7 @@
 }
 .create h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #C907F5;
   margin-bottom: 30px;
 }
 .create input, .create textarea, .create select {
@@ -93,10 +122,36 @@
   display: block;
 }
 .create button {
-  background: #f1356d;
+  background: #C907F5;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.datLink{
+  margin-top: 10px;
+}
+
+.signuplink{
+  width: 400px ;
+  margin: auto;
+  margin-top: 10px;
+
+}
+
+.signuplink p{
+  text-align: center;
+}
+
+.loginlink{
+  width: 400px ;
+  margin: auto;
+  margin-top: 10px;
+
+}
+
+.loginlink p{
+  text-align: center;
 }
