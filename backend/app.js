@@ -6,8 +6,19 @@ const cors = require('cors');
 const routes = require("./routes/routes");
 
 mongoose.connect(
-    "mongodb+srv://teste_luigi:teste_luigi@cluster0.jmy2n.gcp.mongodb.net/trabalhoweb?retryWrites=true&w=majority"
-); // trabalhoweb - nome do database
+    "mongodb+srv://luigimuller:senhadolulu@cluster0.jmy2n.gcp.mongodb.net/trabalhoweb?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: true
+    }
+).then(() => {
+  console.log('Connected to database !!');
+})
+.catch((err)=>{
+  console.log('Connection failed !!'+ err.message);
+});; // trabalhoweb - nome do database
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -45,3 +56,5 @@ app.use(routes);
 const port = process.env.PORT || 3000;
 
 app.listen(port);
+
+console.log("Aberto na porta " + port);

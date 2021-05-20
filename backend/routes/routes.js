@@ -14,6 +14,14 @@ routes.post("/blogs", function(req, re, next){
 	}).catch(next);
 });
 
+// recebe todos os posts
+routes.get("/blogs", function(req, re, next){
+	PostBlog.find({}).then(function(post){
+		console.log(post);
+		res.send(post);
+	}).catch(next);
+})
+
 // recebe um post do blog
 routes.get("/blogs/:id", function(req, res, next){
 	PostBlog.findOne({_id: req.params.id}).then(function(post){
