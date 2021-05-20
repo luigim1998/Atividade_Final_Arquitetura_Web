@@ -23,7 +23,7 @@ const Home = () => {
     }
 
     console.log(currentUser.email);
-    console.log(blogs);
+    console.log("aqui antes do return"+blogs);
 
     return ( 
         <div className="App">
@@ -38,6 +38,7 @@ const Home = () => {
                 <div className="home">
                     { error && <div> {error} </div> }
                     { isLoading && <div>Loading...</div>} 
+                    {console.log("?????"+blogs)}
                     {blogs && <BlogList blogs={blogs} title="Todos os blogs"/>}
                 </div>
             </div>
