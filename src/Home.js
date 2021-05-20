@@ -3,13 +3,12 @@ import Navbar from "./Navbar";
 import useFetch from "./useFetch";
 import {useAuth} from "./AuthContext";
 import { useHistory } from "react-router";
-import api from "./apibackend";
+// import api from "./apibackend";
 
 const Home = () => {
 
     const {data:blogs, isLoading, error} = useFetch('/blogs');
     console.log("LOADINING"+isLoading);
-
     const { currentUser, logout } = useAuth();
     const history = useHistory();
 
