@@ -21,7 +21,6 @@ const useFetch = (url) => {
         })
         .then(data => {
             setData(data);
-            console.log("SETADA NO CU DO data"+data);
             setIsLoading(false);
             setError(false);
         })
