@@ -13,9 +13,8 @@ const useFetch = (url) => {
         .then(res => {
             console.log("dentro do get"+res.data);
             if(res.statusText !== "OK") {
-                throw Error('could not fetch the data for taht resource');
+                throw Error('could not fetch the data for that resource');
             }
-            console.log("data"+res.data);
             return res.data;
         })
         .then(data => {

@@ -16,13 +16,8 @@ const Create = () => {
         e.preventDefault();
         const blog = {title, body, author};
         setIsPending(true);
-
-        // fetch('http://localhost:3500/blogs', {
-        //     method: 'POST',
-        //     headers: {"Content-type": "application/json"},
-        //     body: JSON.stringify(blog)
-        // })
-        api.post("/blogs", JSON.stringify(blog))
+        console.log(blog);
+        api.post("/blogs", blog)
         .then(()=>{
             console.log('new blog added');
             setIsPending(false);

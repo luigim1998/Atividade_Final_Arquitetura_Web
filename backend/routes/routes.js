@@ -24,9 +24,10 @@ routes.get("/blogs", function(req, res, next){
 
 // recebe um post do blog
 routes.get("/blogs/:id", function(req, res, next){
-	PostBlog.findOne({_id: req.params.id}).then(function(post){
-		console.log(post);
-		res.send(post);
+	PostBlog.findOne({_id: req.params.id}).then(function(get){
+		console.log(req.params.id);
+		console.log(get);
+		res.send(get);
 	}).catch(next);
 });
 

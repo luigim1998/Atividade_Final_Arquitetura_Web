@@ -9,7 +9,6 @@ const BlogDetails = () => {
 
     const { id } = useParams();
     const {data:blog, isLoading, error} = useFetch('/blogs/' + id);
-
     const {currentUser} = useAuth();
     const history = useHistory();
 
@@ -26,6 +25,7 @@ const BlogDetails = () => {
             alert("Você não possui permissões administrativas. Somente admins podem deletar blogs!")
         }
     }
+    console.log("o blog "+blog);
 
     return ( 
         <div className="App">
