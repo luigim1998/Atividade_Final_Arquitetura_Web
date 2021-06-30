@@ -9,6 +9,7 @@ const app = firebase.initializeApp({
   messagingSenderId: "712344948735",
   appId: "1:712344948735:web:a8181d4d11c9a2fb4a21ca"
 })
+// este token serve somente como modelo e nao serve
 
 export const auth = app.auth();
 
